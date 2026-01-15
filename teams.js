@@ -1,7 +1,7 @@
 // Team roster data for MGMT 4280 Spring 2026
 const SURVEY_CONFIG = {
   course: "MGMT 4280 Current Topics in HRM (Spring 2026)",
-  apiUrl: "https://script.google.com/macros/s/AKfycbza6JLQFIFQGspBmTlm7oNrgf-R7lzNmBW24R4T_8MZy223aHDcLB5HI0VZ5jMrHdI--A/exec",
+  apiUrl: "https://script.google.com/macros/s/AKfycbwLqXMAqqgpbiq37SrOHccu0TjhkOaR2Hirv8o6yKzFGnibaNCgVijTg7hXX7wP9RKZKQ/exec",
 
   activities: [
     "Team meeting 1",
@@ -17,8 +17,7 @@ const SURVEY_CONFIG = {
     "Team meeting 11",
     "Team meeting 12",
     "Team meeting 13",
-    "Team Presentation 1 - Case Discussion (Dates vary between teams)",
-    "Team Presentation 2 - Final Team Project (Dates vary between teams)"
+    "Team Presentation (Dates vary between teams)"
   ],
 
   teams: [

@@ -376,21 +376,26 @@
       };
 
       try {
+        // Use form submission approach for Google Apps Script
+        const formData = new FormData();
+        formData.append('data', JSON.stringify(data));
+
         const response = await fetch(SURVEY_CONFIG.apiUrl, {
           method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
+          body: formData
         });
 
-        // Due to no-cors, we can't read the response
-        // Generate a local code as backup
-        const localCode = Math.floor(Math.random() * 900) + 100;
+        let completionCode;
+        try {
+          const result = await response.json();
+          completionCode = result.code;
+        } catch (e) {
+          // If we can't parse the response, generate local code
+          completionCode = Math.floor(Math.random() * 900) + 100;
+        }
 
         loading.classList.remove('active');
-        document.getElementById('completion-code').textContent = localCode;
+        document.getElementById('completion-code').textContent = completionCode;
         goToStep(5);
 
       } catch (error) {
