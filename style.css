@@ -454,6 +454,8 @@ select:focus {
   font-weight: 500;
   transition: background-color 0.2s, box-shadow 0.2s;
   border: 1px solid #90caf9;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .email-btn:hover {

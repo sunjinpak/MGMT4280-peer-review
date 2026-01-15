@@ -419,10 +419,15 @@
           ? SURVEY_CONFIG.emails[member]
           : '';
 
-        const btn = document.createElement('a');
+        const mailtoLink = `mailto:${email}?subject=Peer Review Completion Code - ${selectedActivity}&body=Hi ${member.split(' ')[0]},%0D%0A%0D%0AMy completion code for ${selectedActivity} is: ${completionCode}%0D%0A%0D%0AFrom: ${selectedName}`;
+
+        const btn = document.createElement('button');
+        btn.type = 'button';
         btn.className = 'email-btn';
-        btn.href = `mailto:${email}?subject=Peer Review Completion Code - ${selectedActivity}&body=Hi ${member.split(' ')[0]},%0D%0A%0D%0AMy completion code for ${selectedActivity} is: ${completionCode}%0D%0A%0D%0AFrom: ${selectedName}`;
         btn.innerHTML = `<span class="email-icon">✉</span> ${member}`;
+        btn.addEventListener('click', function() {
+          window.location.href = mailtoLink;
+        });
         container.appendChild(btn);
       });
     }
