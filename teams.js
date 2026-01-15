@@ -73,5 +73,72 @@ const SURVEY_CONFIG = {
     { value: 3, label: "Sufficient effort", description: "Contributed adequately to team" },
     { value: 4, label: "Very strong work", description: "Contributed significantly to team" },
     { value: 5, label: "Excellent work", description: "Was crucial component to team's success" }
-  ]
+  ],
+
+  emails: {
+    // Team 1
+    "Amelia Diaz": "adiaz150@csub.edu",
+    "Eric Perez": "eperez140@csub.edu",
+    "Genesis Carrillo": "gcarrillo@csub.edu",
+    "Guillermo Escobedo": "mescobedo8@csub.edu",
+    "James Hamlin": "jhamlin1@csub.edu",
+    // Team 2
+    "Brissary Hinojosa Villarreal": "bhinojosa-villarre@csub.edu",
+    "Elissa Arreola": "earreola3@csub.edu",
+    "Katherine Soltero": "ksoltero@csub.edu",
+    "Monica Heredia": "mheredia8@csub.edu",
+    "Viviana Kaelin": "vkaelin@csub.edu",
+    // Team 3
+    "Alejandro Ambriz": "aambriz5@csub.edu",
+    "Beatriz Salgado": "bsalgado11@csub.edu",
+    "Janeth Marquez Ruiz": "jmarquez-ruiz@csub.edu",
+    "Josephine Melendez": "jmelendez13@csub.edu",
+    "Michelle Oliva": "moliva3@csub.edu",
+    // Team 4
+    "Alexis Headley": "aheadley1@csub.edu",
+    "Brianna Mcgill": "bmcgill@csub.edu",
+    "Jimena Carrillo Gomez": "jcarrillo-gomez@csub.edu",
+    "Jorge Gonzalez": "jgonzalez426@csub.edu",
+    "Luka Geishauser": "lgeishauser@csub.edu",
+    // Team 5
+    "Esperanza Sanchez - Martinez": "esanchez---martine@csub.edu",
+    "Iliana Calderon": "icalderon5@csub.edu",
+    "Jesus Arellanes Gutierrez": "jarellanes-gutierr@csub.edu",
+    "Jocelyn Picazo": "jpicazo4@csub.edu",
+    "Natalie Portillo": "nportillo@csub.edu",
+    // Team 6
+    "Cyrina Perez": "cperez141@csub.edu",
+    "Danielle Baeza": "dbaeza1@csub.edu",
+    "Eduardo Meza": "emeza-jr@csub.edu",
+    "Gracie Murdoch": "gmurdoch@csub.edu",
+    "Tiana Flores": "tflores19@csub.edu",
+    // Team 7
+    "Allyson Loaisiga": "aloaisiga@csub.edu",
+    "Esmeralda Ramirez": "eramirez142@csub.edu",
+    "Jackeline Gutierrez Hernandez": "jgutierrez161@csub.edu",
+    "John Austin Michael Saldana-Quezada": "jsaldana-quezada@csub.edu",
+    "Marissa Hernandez": "mhernandez265@csub.edu",
+    // Team 8
+    "Harrison Allred": "hallred@csub.edu",
+    "Jalyn Usher": "jusher1@csub.edu",
+    "Jonathan Montoya": "jmontoya30@csub.edu",
+    "Melanie Saldana": "msaldana13@csub.edu",
+    "Paul Rivas": "privas5@csub.edu",
+    // Team 9
+    "Aliasgar Cassim": "acassim1@csub.edu",
+    "Grecia Patino": "gpatino3@csub.edu",
+    "Jazmin Gallardo-Acevedo": "jgallardo27@csub.edu",
+    "Lisa Bryant": "lbryant3@csub.edu",
+    "Saul Gallo": "sgallo2@csub.edu",
+    // Team 10
+    "Andrea Vargas-Gonzalez": "avargas80@csub.edu",
+    "Eryka Campos": "ecampos16@csub.edu",
+    "Ophelia Merchant": "omerchant@csub.edu",
+    "Yoselyn Ortiz Gutierrez": "yortiz-gutierrez@csub.edu",
+    // Team 11
+    "Chad Brown": "cbrown95@csub.edu",
+    "Iveth Cruz": "icruz20@csub.edu",
+    "Jaivir Garcha": "jgarcha1@csub.edu",
+    "Yazil Duran": "yduran8@csub.edu"
+  }
 };
