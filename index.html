@@ -149,6 +149,7 @@
             <div class="completion-instructions">
               <p>Please send this completion code to the notetaker of the current week meeting.</p>
               <p style="margin-top: 12px;"><strong>Click on a team member below to send them an email with your completion code:</strong></p>
+              <p style="margin-top: 8px; font-size: 12px; color: #888;">📱 On smartphone, clicking will open your email app with the completion code already filled in.</p>
             </div>
           </div>
 
@@ -421,32 +422,14 @@
 
         const mailtoLink = `mailto:${email}?subject=Peer Review Completion Code - ${selectedActivity}&body=Hi ${member.split(' ')[0]},%0D%0A%0D%0AMy completion code for ${selectedActivity} is: ${completionCode}%0D%0A%0D%0AFrom: ${selectedName}`;
 
-        const btnContainer = document.createElement('div');
-        btnContainer.className = 'email-btn-container';
-
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'email-btn';
-        btn.innerHTML = `<span class="email-icon">✉</span> ${member}`;
+        btn.innerHTML = `<span class="email-icon">✉</span> <span class="email-btn-content"><span class="email-btn-name">${member}</span><span class="email-btn-address">${email}</span></span>`;
         btn.addEventListener('click', function() {
           window.location.href = mailtoLink;
         });
-
-        const copyBtn = document.createElement('button');
-        copyBtn.type = 'button';
-        copyBtn.className = 'copy-btn';
-        copyBtn.title = 'Copy email address';
-        copyBtn.innerHTML = '📋';
-        copyBtn.addEventListener('click', function() {
-          navigator.clipboard.writeText(email).then(() => {
-            copyBtn.innerHTML = '✓';
-            setTimeout(() => { copyBtn.innerHTML = '📋'; }, 1500);
-          });
-        });
-
-        btnContainer.appendChild(btn);
-        btnContainer.appendChild(copyBtn);
-        container.appendChild(btnContainer);
+        container.appendChild(btn);
       });
     }
 
