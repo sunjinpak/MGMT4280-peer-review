@@ -356,7 +356,7 @@
       });
     }
 
-    async function submitSurvey() {
+    function submitSurvey() {
       const submitBtn = document.getElementById('btn-submit');
       const loading = document.getElementById('loading');
       const errorMsg = document.getElementById('error-message');
@@ -375,35 +375,60 @@
         }))
       };
 
-      try {
-        // Use form submission approach for Google Apps Script
-        const formData = new FormData();
-        formData.append('data', JSON.stringify(data));
+      // Generate completion code locally
+      const completionCode = Math.floor(Math.random() * 900) + 100;
 
-        const response = await fetch(SURVEY_CONFIG.apiUrl, {
-          method: 'POST',
-          body: formData
-        });
+      // Create hidden iframe for form submission
+      const iframeName = 'submit-iframe-' + Date.now();
+      const iframe = document.createElement('iframe');
+      iframe.name = iframeName;
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
 
-        let completionCode;
-        try {
-          const result = await response.json();
-          completionCode = result.code;
-        } catch (e) {
-          // If we can't parse the response, generate local code
-          completionCode = Math.floor(Math.random() * 900) + 100;
-        }
+      // Create hidden form
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = SURVEY_CONFIG.apiUrl;
+      form.target = iframeName;
+      form.style.display = 'none';
 
+      // Add form fields
+      const fields = {
+        activity: data.activity,
+        team: data.team,
+        respondent: data.respondent,
+        completionCode: completionCode
+      };
+
+      // Add each member rating as separate field
+      data.ratings.forEach((r, i) => {
+        fields['member' + (i + 1)] = r.member;
+        fields['rating' + (i + 1)] = r.rating;
+      });
+
+      for (const [key, value] of Object.entries(fields)) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      }
+
+      document.body.appendChild(form);
+
+      // Submit form
+      form.submit();
+
+      // Show completion after short delay
+      setTimeout(() => {
         loading.classList.remove('active');
         document.getElementById('completion-code').textContent = completionCode;
         goToStep(5);
 
-      } catch (error) {
-        loading.classList.remove('active');
-        errorMsg.textContent = 'Error submitting survey. Please try again.';
-        errorMsg.classList.add('active');
-        submitBtn.disabled = false;
-      }
+        // Cleanup
+        document.body.removeChild(form);
+        document.body.removeChild(iframe);
+      }, 1500);
     }
   </script>
 </body>
