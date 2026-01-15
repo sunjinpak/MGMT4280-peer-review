@@ -98,6 +98,14 @@
           <div class="rating-matrix">
             <table class="rating-table">
               <thead>
+                <tr class="rating-labels">
+                  <th></th>
+                  <th><span class="rating-label-text">Little/weak effort</span></th>
+                  <th><span class="rating-label-text">Insufficient effort</span></th>
+                  <th><span class="rating-label-text">Sufficient effort</span></th>
+                  <th><span class="rating-label-text">Very strong work</span></th>
+                  <th><span class="rating-label-text">Excellent work</span></th>
+                </tr>
                 <tr>
                   <th></th>
                   <th>1</th>
@@ -140,7 +148,12 @@
             <div class="code-display" id="completion-code">---</div>
             <div class="completion-instructions">
               <p>Please send this completion code to the notetaker of the current week meeting.</p>
+              <p style="margin-top: 12px;"><strong>Click on a team member below to send them an email with your completion code:</strong></p>
             </div>
+          </div>
+
+          <div class="email-buttons" id="email-buttons">
+            <!-- Will be populated dynamically -->
           </div>
 
           <div class="notetaker-table">
@@ -181,9 +194,31 @@
     let selectedTeam = null;
     let selectedName = '';
     let ratings = {};
+    let completionCode = '';
+    let clientInfo = {};
+
+    // Collect client info
+    function collectClientInfo() {
+      return {
+        userAgent: navigator.userAgent,
+        language: navigator.language,
+        platform: navigator.platform,
+        screenWidth: screen.width,
+        screenHeight: screen.height,
+        windowWidth: window.innerWidth,
+        windowHeight: window.innerHeight,
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+        timezoneOffset: new Date().getTimezoneOffset(),
+        referrer: document.referrer || 'direct',
+        cookiesEnabled: navigator.cookieEnabled,
+        onLine: navigator.onLine,
+        timestamp: new Date().toISOString()
+      };
+    }
 
     // Initialize
     document.addEventListener('DOMContentLoaded', function() {
+      clientInfo = collectClientInfo();
       initializeSurvey();
       setupEventListeners();
     });
@@ -261,6 +296,8 @@
         populateNameOptions();
       } else if (step === 4) {
         populateRatingMatrix();
+      } else if (step === 5) {
+        populateEmailButtons();
       }
 
       // Show next section
@@ -356,6 +393,27 @@
       });
     }
 
+    function populateEmailButtons() {
+      const container = document.getElementById('email-buttons');
+      container.innerHTML = '';
+
+      const teamData = SURVEY_CONFIG.teams.find(t => t.number === selectedTeam.number);
+      if (!teamData) return;
+
+      teamData.members.forEach((member, index) => {
+        // Get email from roster (stored in teams.js)
+        const email = SURVEY_CONFIG.emails && SURVEY_CONFIG.emails[member]
+          ? SURVEY_CONFIG.emails[member]
+          : '';
+
+        const btn = document.createElement('a');
+        btn.className = 'email-btn';
+        btn.href = `mailto:${email}?subject=Peer Review Completion Code - ${selectedActivity}&body=Hi ${member.split(' ')[0]},%0D%0A%0D%0AMy completion code for ${selectedActivity} is: ${completionCode}%0D%0A%0D%0AFrom: ${selectedName}`;
+        btn.innerHTML = `<span class="email-icon">✉</span> ${member}`;
+        container.appendChild(btn);
+      });
+    }
+
     function submitSurvey() {
       const submitBtn = document.getElementById('btn-submit');
       const loading = document.getElementById('loading');
@@ -376,7 +434,7 @@
       };
 
       // Generate completion code locally
-      const completionCode = Math.floor(Math.random() * 900) + 100;
+      completionCode = Math.floor(Math.random() * 900) + 100;
 
       // Create hidden iframe for form submission
       const iframeName = 'submit-iframe-' + Date.now();
@@ -397,7 +455,19 @@
         activity: data.activity,
         team: data.team,
         respondent: data.respondent,
-        completionCode: completionCode
+        completionCode: completionCode,
+        // Client info
+        userAgent: clientInfo.userAgent,
+        language: clientInfo.language,
+        platform: clientInfo.platform,
+        screenSize: `${clientInfo.screenWidth}x${clientInfo.screenHeight}`,
+        windowSize: `${clientInfo.windowWidth}x${clientInfo.windowHeight}`,
+        timezone: clientInfo.timezone,
+        timezoneOffset: clientInfo.timezoneOffset,
+        referrer: clientInfo.referrer,
+        cookiesEnabled: clientInfo.cookiesEnabled,
+        onLine: clientInfo.onLine,
+        clientTimestamp: clientInfo.timestamp
       };
 
       // Add each member rating as separate field

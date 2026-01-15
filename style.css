@@ -407,6 +407,60 @@ select:focus {
   display: block;
 }
 
+/* Rating labels */
+.rating-labels th {
+  font-size: 10px;
+  font-weight: 400;
+  color: #5f6368;
+  padding: 4px 2px;
+  vertical-align: bottom;
+}
+
+.rating-label-text {
+  display: block;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 1.2;
+  max-height: 80px;
+}
+
+/* Email buttons */
+.email-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 0 16px;
+}
+
+.email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s, box-shadow 0.2s;
+  border: 1px solid #90caf9;
+}
+
+.email-btn:hover {
+  background-color: #bbdefb;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.email-icon {
+  font-size: 16px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
   body {
