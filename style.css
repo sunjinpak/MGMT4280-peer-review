@@ -160,11 +160,13 @@ select:focus {
   padding: 8px 4px;
   text-align: center;
   min-width: 60px;
+  width: 60px;
 }
 
 .rating-table th:first-child {
   text-align: left;
   min-width: 150px;
+  width: auto;
 }
 
 .rating-table td {
@@ -414,17 +416,19 @@ select:focus {
   color: #5f6368;
   padding: 4px 2px;
   vertical-align: bottom;
+  text-align: center;
 }
 
 .rating-label-text {
-  display: block;
+  display: inline-block;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   transform: rotate(180deg);
   white-space: nowrap;
   font-size: 11px;
   line-height: 1.2;
-  max-height: 80px;
+  height: 90px;
+  text-align: left;
 }
 
 /* Email buttons */
