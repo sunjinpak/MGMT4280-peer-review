@@ -421,19 +421,32 @@
 
         const mailtoLink = `mailto:${email}?subject=Peer Review Completion Code - ${selectedActivity}&body=Hi ${member.split(' ')[0]},%0D%0A%0D%0AMy completion code for ${selectedActivity} is: ${completionCode}%0D%0A%0D%0AFrom: ${selectedName}`;
 
+        const btnContainer = document.createElement('div');
+        btnContainer.className = 'email-btn-container';
+
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'email-btn';
         btn.innerHTML = `<span class="email-icon">✉</span> ${member}`;
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const newWindow = window.open(mailtoLink, '_blank');
-          // Fallback if popup blocked
-          if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-            window.location.href = mailtoLink;
-          }
+        btn.addEventListener('click', function() {
+          window.location.href = mailtoLink;
         });
-        container.appendChild(btn);
+
+        const copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'copy-btn';
+        copyBtn.title = 'Copy email address';
+        copyBtn.innerHTML = '📋';
+        copyBtn.addEventListener('click', function() {
+          navigator.clipboard.writeText(email).then(() => {
+            copyBtn.innerHTML = '✓';
+            setTimeout(() => { copyBtn.innerHTML = '📋'; }, 1500);
+          });
+        });
+
+        btnContainer.appendChild(btn);
+        btnContainer.appendChild(copyBtn);
+        container.appendChild(btnContainer);
       });
     }
 
