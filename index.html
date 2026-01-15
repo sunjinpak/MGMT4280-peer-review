@@ -425,7 +425,7 @@
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'email-btn';
-        btn.innerHTML = `<span class="email-icon">✉</span> <span class="email-btn-content"><span class="email-btn-name">${member}</span><span class="email-btn-address">${email}</span></span>`;
+        btn.innerHTML = `<span class="email-icon">✉</span> <span class="email-btn-content"><span class="email-btn-name">${member}</span><span class="email-btn-address" onclick="event.stopPropagation()">${email}</span></span>`;
         btn.addEventListener('click', function() {
           window.location.href = mailtoLink;
         });

@@ -483,6 +483,10 @@ select:focus {
   font-size: 11px;
   color: #5f6368;
   font-weight: 400;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  cursor: text;
 }
 
 /* Responsive */
