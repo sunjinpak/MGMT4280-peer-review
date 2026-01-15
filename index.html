@@ -425,8 +425,13 @@
         btn.type = 'button';
         btn.className = 'email-btn';
         btn.innerHTML = `<span class="email-icon">✉</span> ${member}`;
-        btn.addEventListener('click', function() {
-          window.location.href = mailtoLink;
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const newWindow = window.open(mailtoLink, '_blank');
+          // Fallback if popup blocked
+          if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
+            window.location.href = mailtoLink;
+          }
         });
         container.appendChild(btn);
       });
