@@ -55,7 +55,7 @@ const SURVEY_CONFIG = {
     },
     {
       number: 9,
-      members: ["Aliasgar Cassim", "Grecia Patino", "Jazmin Gallardo-Acevedo", "Lisa Bryant", "Saul Gallo"]
+      members: ["Aliasgar Cassim", "Grecia Patino", "Jazmin Gallardo-Acevedo", "Saul Gallo"]
     },
     {
       number: 10,
@@ -63,7 +63,7 @@ const SURVEY_CONFIG = {
     },
     {
       number: 11,
-      members: ["Chad Brown", "Iveth Cruz", "Jaivir Garcha", "Yazil Duran"]
+      members: ["Chad Brown", "Iveth Cruz", "Jaivir Garcha", "Yazil Duran", "Lisa Bryant"]
     }
   ],
 
@@ -128,7 +128,6 @@ const SURVEY_CONFIG = {
     "Aliasgar Cassim": "acassim1@csub.edu",
     "Grecia Patino": "gpatino3@csub.edu",
     "Jazmin Gallardo-Acevedo": "jgallardo27@csub.edu",
-    "Lisa Bryant": "lbryant3@csub.edu",
     "Saul Gallo": "sgallo2@csub.edu",
     // Team 10
     "Andrea Vargas-Gonzalez": "avargas80@csub.edu",
@@ -139,6 +138,7 @@ const SURVEY_CONFIG = {
     "Chad Brown": "cbrown95@csub.edu",
     "Iveth Cruz": "icruz20@csub.edu",
     "Jaivir Garcha": "jgarcha1@csub.edu",
-    "Yazil Duran": "yduran8@csub.edu"
+    "Yazil Duran": "yduran8@csub.edu",
+    "Lisa Bryant": "lbryant3@csub.edu"
   }
 };
