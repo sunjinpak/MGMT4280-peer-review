@@ -63,7 +63,7 @@ const SURVEY_CONFIG = {
     },
     {
       number: 11,
-      members: ["Chad Brown", "Iveth Cruz", "Jaivir Garcha", "Yazil Duran", "Lisa Bryant"]
+      members: ["Alyssa Carrera", "Chad Brown", "Iveth Cruz", "Jaivir Garcha", "Yazil Duran", "Lisa Bryant"]
     }
   ],
 
@@ -135,6 +135,7 @@ const SURVEY_CONFIG = {
     "Ophelia Merchant": "omerchant@csub.edu",
     "Yoselyn Ortiz Gutierrez": "yortiz-gutierrez@csub.edu",
     // Team 11
+    "Alyssa Carrera": "acarrera13@csub.edu",
     "Chad Brown": "cbrown95@csub.edu",
     "Iveth Cruz": "icruz20@csub.edu",
     "Jaivir Garcha": "jgarcha1@csub.edu",
