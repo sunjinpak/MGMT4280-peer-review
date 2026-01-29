@@ -55,7 +55,7 @@ const SURVEY_CONFIG = {
     },
     {
       number: 9,
-      members: ["Aliasgar Cassim", "Grecia Patino", "Jazmin Gallardo-Acevedo", "Saul Gallo"]
+      members: ["Aliasgar Cassim", "Grecia Patino", "Iqra Sajid", "Jazmin Gallardo-Acevedo", "Saul Gallo"]
     },
     {
       number: 10,
@@ -127,6 +127,7 @@ const SURVEY_CONFIG = {
     // Team 9
     "Aliasgar Cassim": "acassim1@csub.edu",
     "Grecia Patino": "gpatino3@csub.edu",
+    "Iqra Sajid": "isajid@csub.edu",
     "Jazmin Gallardo-Acevedo": "jgallardo27@csub.edu",
     "Saul Gallo": "sgallo2@csub.edu",
     // Team 10
