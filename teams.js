@@ -39,7 +39,7 @@ const SURVEY_CONFIG = {
     },
     {
       number: 5,
-      members: ["Esperanza Sanchez - Martinez", "Iliana Calderon", "Jesus Arellanes Gutierrez", "Jocelyn Picazo", "Natalie Portillo"]
+      members: ["Esperanza Sanchez - Martinez", "Jesus Arellanes Gutierrez", "Jocelyn Picazo", "Natalie Portillo"]
     },
     {
       number: 6,
@@ -102,7 +102,6 @@ const SURVEY_CONFIG = {
     "Luka Geishauser": "lgeishauser@csub.edu",
     // Team 5
     "Esperanza Sanchez - Martinez": "esanchez---martine@csub.edu",
-    "Iliana Calderon": "icalderon5@csub.edu",
     "Jesus Arellanes Gutierrez": "jarellanes-gutierr@csub.edu",
     "Jocelyn Picazo": "jpicazo4@csub.edu",
     "Natalie Portillo": "nportillo@csub.edu",
